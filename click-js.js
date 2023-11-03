@@ -18,7 +18,7 @@ function play(){
    
    var e = document.getElementById("target");
    e.style.display = 'none';
-
+   var dotsclicked = 0;
    var y = getRandom(10, 90);
    var x = getRandom(10, 90);
    //console.log(y);
@@ -45,11 +45,17 @@ function changeSize(){
    //e.style.height = 
 }
 // function that ads to a counter everytime the dot is clicked
-
+function DotClicked(){
+   dotsclicked++;
+   document.getElementById("target").style.transform = "scale(0)";
+}
 // end screen- called when t h timer runs out (printing counter, play again button, etc)
 function stop (){
+   !gamestarted; 
    var accuracy = numClicks/numTargets; 
    var percentage = accuracy * 100 + '%';
+   clearInterval(/*interval id*/);
+   document.getElementById("start").style.display = 'block';
    //print this out in a div that says how many targets were clicked & the percentage
 
 }
