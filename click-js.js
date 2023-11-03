@@ -1,9 +1,6 @@
 document.getElementById("target").style.display = 'none';
 document.getElementById("start").addEventListener("click", start);
 
-
-
-
 //starts when start button is clicked
 function start(){
         var e = document.getElementById("target");
@@ -16,7 +13,6 @@ function start(){
 
 // function to make the dot appear/disapear every 5 secs
 const getRandom = (min, max)  => Math.floor(Math.random()*(max-min+1)+min);
-
 
 function play(){
    
