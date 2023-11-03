@@ -3,5 +3,7 @@
     width: 25px;
     background-color: #ff0000;
     border-radius: 50%;
+    position: relative;
     display: inline-block;
+    top: 75vh;
   }

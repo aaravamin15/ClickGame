@@ -18,6 +18,8 @@ const getRandom = (min, max)  => Math.floor(Math.random()*(max-min+1)+min);
 function play(){
    
    var e = document.getElementById("target");
+   e.style.height = '25px';
+   e.style.width = '25px';
    e.style.display = 'none';
    var dotsclicked = 0;
    var y = getRandom(10, 90);
@@ -29,9 +31,11 @@ function play(){
    e.style.top = y + 'vh';
    e.style.display = 'block';
 
-   var interval = setInterval(changeSize, 300);
+   var interval = setInterval(changeSize, 700);
    //is this right?: 
-   setTimeout(stopChange(interval), 1500);
+   setTimeout(function stopChange(interval){
+      clearInterval(interval);
+   }, 1500);
    //  !! CALL THE CHANGE SIZE FUNCTION HERE !!
 }
 // set amount of time to grow larger when they appear & time to shrink until they disappear
@@ -42,14 +46,20 @@ function stopChange(interval){
 function changeSize(){
    var e = document.getElementById("target");
    //something isnt working here 
-   var height = e.style.height;
+   var height = e.style.height.substring(0,e.style.height.length-2);
    console.log(height);
-   height += 25
-   e.style.height = height + 'px'; 
+   parseInt(height) += 25
+   e.style.height = parseInt(height) + 'px'; 
    console.log(height);
 
+   var width = e.style.width.substring(0,e.style.width.length-2);
+   console.log(width);
+   parceInt(width) += 25;
+   e.style.width = parseInt(width) + 'px'; 
+   console.log(width);
+
    //e.style.height = '50px';
-   e.style.width += '25px'; 
+   //e.style.width += '25px'; 
 
    //e.style.height = 
 }
@@ -62,7 +72,7 @@ function DotClicked(){
 function stop (){
    var accuracy = numClicks/numTargets; 
    var percentage = accuracy * 100 + '%';
-   clearInterval(/*interval id*/);
+   clearInterval(interval);
    document.getElementById("start").style.display = 'block';
    //print this out in a div that says how many targets were clicked & the percentage
 
