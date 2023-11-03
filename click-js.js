@@ -74,6 +74,7 @@ function stop (){
    var percentage = accuracy * 100 + '%';
    clearInterval(interval);
    document.getElementById("start").style.display = 'block';
+   document.getElementById('player-accuracy').textContent = accuracy;
    //print this out in a div that says how many targets were clicked & the percentage
 
 }
