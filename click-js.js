@@ -8,8 +8,8 @@ function start(){
         //e.style.display = 'block';
          //set a timer variable 
          console.log(interval)
-         var interval = setInterval(play, 1500);
-         setTimeout(stop(interval), 10 * 1000);
+         var interval = setInterval(play, 2000);
+         setTimeout(stop(interval), 10 * 2000);
 }
 
 // function to make the dot appear/disapear every 5 secs
@@ -31,37 +31,51 @@ function play(){
    e.style.top = y + 'vh';
    e.style.display = 'block';
 
-   var interval = setInterval(changeSize, 700);
+   var interval = setInterval(changeSize, 100);
    //is this right?: 
-   setTimeout(function stopChange(interval){
-      clearInterval(interval);
-   }, 1500);
+   setTimeout(changeSizeSmaller(interval), 1500);
+   var interval2 = setInterval(changeSizeSmaller, 100);
    //  !! CALL THE CHANGE SIZE FUNCTION HERE !!
 }
 // set amount of time to grow larger when they appear & time to shrink until they disappear
-function stopChange(interval){
+/*function stopChange(interval){
    clearInterval(interval);
-}
+}*/
 
 function changeSize(){
    var e = document.getElementById("target");
    //something isnt working here 
    var height = e.style.height.substring(0,e.style.height.length-2);
-   console.log(height);
-   parseInt(height) += 25
-   e.style.height = parseInt(height) + 'px'; 
-   console.log(height);
+   //console.log(height);
+   height = parseInt(height);
+   height += 5;
+   e.style.height = height + 'px'; 
+   //console.log(height);
 
    var width = e.style.width.substring(0,e.style.width.length-2);
-   console.log(width);
-   parceInt(width) += 25;
-   e.style.width = parseInt(width) + 'px'; 
-   console.log(width);
+   //console.log(width);
+   width = parseInt(width);
+   width += 5;
+   e.style.width = width + 'px'; 
+   //console.log(width);
+}
+function changeSizeSmaller(interval){
+   clearInterval(interval);
+   var e = document.getElementById("target");
+   //something isnt working here 
+   var height = e.style.height.substring(0,e.style.height.length-2);
+   //console.log(height);
+   height = parseInt(height);
+   height -= 1;
+   e.style.height = height + 'px'; 
+   //console.log(height);
 
-   //e.style.height = '50px';
-   //e.style.width += '25px'; 
-
-   //e.style.height = 
+   var width = e.style.width.substring(0,e.style.width.length-2);
+   //console.log(width);
+   width = parseInt(width);
+   width -= 1;
+   e.style.width = width + 'px'; 
+   //console.log(width);
 }
 // function that ads to a counter everytime the dot is clicked
 function DotClicked(){
@@ -70,9 +84,9 @@ function DotClicked(){
 }
 // end screen- called when t h timer runs out (printing counter, play again button, etc)
 function stop (){
-   var accuracy = numClicks/numTargets; 
-   var percentage = accuracy * 100 + '%';
-   clearInterval(interval);
+   //var accuracy = numClicks/numTargets; 
+   //var percentage = accuracy * 100 + '%';
+   //clearInterval(interval);
    document.getElementById("start").style.display = 'block';
    //print this out in a div that says how many targets were clicked & the percentage
 
