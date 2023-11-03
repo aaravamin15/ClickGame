@@ -2,6 +2,7 @@ document.getElementById("target").style.display = 'none';
 document.getElementById("start").addEventListener("click", start);
 
 document.getElementById("target").addEventListener("click", DotClicked);
+let dotsclicked = 0;
 //starts when start button is clicked
 function start(){
       var gamestarted = true;
@@ -91,8 +92,10 @@ function shrink(interval){
 }
 // function that ads to a counter everytime the dot is clicked
 function DotClicked(){
-   dotsclicked++;
    document.getElementById("target").style.display = "none";
+   console.log("invisible");
+   dotsclicked++;
+   
 }
 // end screen- called when t h timer runs out (printing counter, play again button, etc)
 function stop (){
