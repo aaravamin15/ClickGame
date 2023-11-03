@@ -8,7 +8,7 @@ function start(){
          //set a timer variable 
          console.log(interval)
          var interval = setInterval(play, 1500);
-         setTimeout(stop, 10 * 1000);
+         setTimeout(stop(interval), 10 * 1000);
 }
 
 // function to make the dot appear/disapear every 5 secs
@@ -30,17 +30,25 @@ function play(){
 
    var interval = setInterval(changeSize, 300);
    //is this right?: 
-   setTimeout(stop, 1500);
+   setTimeout(stopChange(interval), 1500);
    //  !! CALL THE CHANGE SIZE FUNCTION HERE !!
 }
 // set amount of time to grow larger when they appear & time to shrink until they disappear
+function stopChange(interval){
+   clearInterval(interval);
+}
 
 function changeSize(){
    var e = document.getElementById("target");
    //something isnt working here 
-   //e.style.height += '25px'; 
+   var height = e.style.height;
+   console.log(height);
+   height += 25
+   e.style.height = height + 'px'; 
+   console.log(height);
+
    //e.style.height = '50px';
-   //e.style.width += '25px'; 
+   e.style.width += '25px'; 
 
    //e.style.height = 
 }
@@ -48,6 +56,7 @@ function changeSize(){
 
 // end screen- called when t h timer runs out (printing counter, play again button, etc)
 function stop (){
+   clearInterval(interval);
    var accuracy = numClicks/numTargets; 
    var percentage = accuracy * 100 + '%';
    //print this out in a div that says how many targets were clicked & the percentage
