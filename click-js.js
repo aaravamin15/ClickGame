@@ -3,6 +3,7 @@ document.getElementById("start").addEventListener("click", start);
 
 //starts when start button is clicked
 function start(){
+      var gamestarted = true;
         var e = document.getElementById("target");
         //e.style.display = 'block';
          //set a timer variable 
@@ -51,7 +52,7 @@ function DotClicked(){
 }
 // end screen- called when t h timer runs out (printing counter, play again button, etc)
 function stop (){
-   !gamestarted; 
+   gamestarted = false;
    var accuracy = numClicks/numTargets; 
    var percentage = accuracy * 100 + '%';
    clearInterval(/*interval id*/);
