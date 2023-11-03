@@ -25,20 +25,28 @@ function play(){
 
    var y = getRandom(10, 90);
    var x = getRandom(10, 90);
-   console.log(y);
-   console.log(x);
+   //console.log(y);
+   //console.log(x);
 
    e.style.left= x + 'vh';
    e.style.top = y + 'vh';
    e.style.display = 'block';
 
-   /*if(e.style.display == 'block')
-           e.style.display = 'none';
-        else
-           e.style.display = 'block';*/
-
+   var interval = setInterval(changeSize, 300);
+   setTimeout(stop, 1500);
+   //  !! CALL THE CHANGE SIZE FUNCTION HERE !!
 }
 // set amount of time to grow larger when they appear & time to shrink until they disappear
+
+function changeSize(){
+   var e = document.getElementById("target");
+   //something isnt working here 
+   //e.style.height += '25px'; 
+   //e.style.height = '50px';
+   //e.style.width += '25px'; 
+
+   //e.style.height = 
+}
 // function that ads to a counter everytime the dot is clicked
 // end screen- called whent eh timer runs out (printing counter, play again button, etc)
 
