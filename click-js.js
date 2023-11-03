@@ -1,6 +1,7 @@
 document.getElementById("target").style.display = 'none';
 document.getElementById("start").addEventListener("click", start);
 
+document.getElementById("target").addEventListener("click", DotClicked);
 //starts when start button is clicked
 function start(){
       var gamestarted = true;
@@ -8,19 +9,18 @@ function start(){
         //e.style.display = 'block';
          //set a timer variable 
          console.log(interval)
-         var interval = setInterval(play, 2000);
-         setTimeout(stop(interval), 10 * 2000);
+         var interval = setInterval(play, 3000);
+         setTimeout(stop(interval), 10000); // whats the difference between 10* 1000 and this 
 }
 
 // function to make the dot appear/disapear every 5 secs
 const getRandom = (min, max)  => Math.floor(Math.random()*(max-min+1)+min);
 
 function play(){
-   
    var e = document.getElementById("target");
+   e.style.display = 'none';
    e.style.height = '25px';
    e.style.width = '25px';
-   e.style.display = 'none';
    var dotsclicked = 0;
    var y = getRandom(10, 90);
    var x = getRandom(10, 90);
@@ -30,11 +30,22 @@ function play(){
    e.style.left= x + 'vh';
    e.style.top = y + 'vh';
    e.style.display = 'block';
+   
+   var intervalg = setInterval(grow, 100);
+   setTimeout(stopGrow(intervalg), 1000);
 
-   var interval = setInterval(changeSize, 100);
+   //var intervalg = setInterval(grow, 100);
+   var intervals = setInterval(shrink, 100);
+   setTimeout(stopShrink(intervals), 100);
+
+   
+   /*setTimeout(function stop(interval){
+      clearInterval(interval)
+   }, 1500);*/
    //is this right?: 
-   setTimeout(changeSizeSmaller(interval), 1500);
-   var interval2 = setInterval(changeSizeSmaller, 100);
+   //setTimeout(changeSizeSmaller(interval), 1500);
+   
+   //var interval2 = setInterval(changeSizeSmaller, 100);
    //  !! CALL THE CHANGE SIZE FUNCTION HERE !!
 }
 // set amount of time to grow larger when they appear & time to shrink until they disappear
@@ -42,45 +53,46 @@ function play(){
    clearInterval(interval);
 }*/
 
-function changeSize(){
+function grow(){
    var e = document.getElementById("target");
    //something isnt working here 
-   var height = e.style.height.substring(0,e.style.height.length-2);
+      var height = e.style.height.substring(0,e.style.height.length-2);
    //console.log(height);
    height = parseInt(height);
    height += 5;
    e.style.height = height + 'px'; 
-   //console.log(height);
+   console.log(height);
 
    var width = e.style.width.substring(0,e.style.width.length-2);
    //console.log(width);
    width = parseInt(width);
    width += 5;
    e.style.width = width + 'px'; 
-   //console.log(width);
+   console.log(width);
 }
-function changeSizeSmaller(interval){
+
+function shrink(interval){
    clearInterval(interval);
    var e = document.getElementById("target");
    //something isnt working here 
    var height = e.style.height.substring(0,e.style.height.length-2);
    //console.log(height);
    height = parseInt(height);
-   height -= 1;
+   height -= 5;
    e.style.height = height + 'px'; 
    //console.log(height);
 
    var width = e.style.width.substring(0,e.style.width.length-2);
    //console.log(width);
    width = parseInt(width);
-   width -= 1;
+   width -= 5;
    e.style.width = width + 'px'; 
    //console.log(width);
 }
 // function that ads to a counter everytime the dot is clicked
 function DotClicked(){
    dotsclicked++;
-   document.getElementById("target").style.transform = "scale(0)";
+   document.getElementById("target").style.display = "none";
 }
 // end screen- called when t h timer runs out (printing counter, play again button, etc)
 function stop (){
