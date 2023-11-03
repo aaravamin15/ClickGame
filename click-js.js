@@ -33,6 +33,7 @@ function play(){
    e.style.display = 'block';
 
    var interval = setInterval(changeSize, 300);
+   //is this right?: 
    setTimeout(stop, 1500);
    //  !! CALL THE CHANGE SIZE FUNCTION HERE !!
 }
@@ -48,5 +49,12 @@ function changeSize(){
    //e.style.height = 
 }
 // function that ads to a counter everytime the dot is clicked
-// end screen- called whent eh timer runs out (printing counter, play again button, etc)
+
+// end screen- called when t h timer runs out (printing counter, play again button, etc)
+function stop (){
+   var accuracy = numClicks/numTargets; 
+   var percentage = accuracy * 100 + '%';
+   //print this out in a div that says how many targets were clicked & the percentage
+
+}
 
