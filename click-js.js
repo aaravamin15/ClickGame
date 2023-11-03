@@ -15,13 +15,23 @@ function start(){
 }
 
 // function to make the dot appear/disapear every 5 secs
-const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+const getRandom = (min, max)  => Math.floor(Math.random()*(max-min+1)+min);
+
 
 function play(){
+   
    var e = document.getElementById("target");
-   e.style.displey = 'block';
+   e.style.display = 'none';
 
-   getRandom(10, 90)
+   var y = getRandom(10, 90);
+   var x = getRandom(10, 90);
+   console.log(y);
+   console.log(x);
+
+   e.style.left= x + 'vh';
+   e.style.top = y + 'vh';
+   e.style.display = 'block';
+
    /*if(e.style.display == 'block')
            e.style.display = 'none';
         else
