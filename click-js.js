@@ -7,10 +7,10 @@ document.getElementById("start").addEventListener("click", start);
 //starts when start button is clicked
 function start(){
         var e = document.getElementById("target");
-        e.style.display = 'block';
+        //e.style.display = 'block';
          //set a timer variable 
          console.log(interval)
-         var interval = setInterval(play, 1000);
+         var interval = setInterval(play, 1500);
          setTimeout(stop, 10 * 1000);
 }
 
