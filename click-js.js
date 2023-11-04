@@ -9,7 +9,7 @@ function start(){
         var e = document.getElementById("target");
         //e.style.display = 'block';
          //set a timer variable 
-         console.log(interval)
+         console.log(interval);
          var interval = setInterval(play, 3000);
          setTimeout(stop(interval), 10000); // whats the difference between 10* 1000 and this 
 }
@@ -33,12 +33,19 @@ function play(){
    e.style.display = 'block';
    
    var intervalg = setInterval(grow, 100);
-   setTimeout(stopGrow(intervalg), 1000);
+   setTimeout(function stopGrow(intervalg){
+      clearInterval(intervalg);
+   }, 1000)
+   //this just made it flicker between expanding and shrinking:
+   /*setTimeout(function stopGrow(intervalg){
+      clearInterval(intervalg);
+   }, 1000);
 
    //var intervalg = setInterval(grow, 100);
    var intervals = setInterval(shrink, 100);
-   setTimeout(stopShrink(intervals), 100);
-
+   setTimeout(function stopShrink(intervals){
+      clearInterval(intervals)
+   }, 1000);*/
    
    /*setTimeout(function stop(interval){
       clearInterval(interval)
@@ -47,7 +54,6 @@ function play(){
    //setTimeout(changeSizeSmaller(interval), 1500);
    
    //var interval2 = setInterval(changeSizeSmaller, 100);
-   //  !! CALL THE CHANGE SIZE FUNCTION HERE !!
 }
 // set amount of time to grow larger when they appear & time to shrink until they disappear
 /*function stopChange(interval){
@@ -98,7 +104,9 @@ function DotClicked(){
    
 }
 // end screen- called when t h timer runs out (printing counter, play again button, etc)
-function stop (){
+function stop (interval){
+   //when i added this it stopped showing up (there is something wrong with the timeout functions)
+   clearInterval(interval);
    //var accuracy = numClicks/numTargets; 
    //var percentage = accuracy * 100 + '%';
    //clearInterval(interval);
