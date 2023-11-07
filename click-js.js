@@ -107,7 +107,8 @@ function stop (interval){
   
       //print this out in a div that says how many targets were clicked & accuracy
    document.getElementById('player-accuracy').innerHTML =  percentage;
-   document.getElementById('targets-hit').textContent =  dotsclicked;
+   document.getElementById('targets-hit').textContent =  dotsclicked + "/20";
+   
 
 
 }
