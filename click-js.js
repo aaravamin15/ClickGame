@@ -98,18 +98,15 @@ function DotClicked(){
    dotsclicked++;
 }
 // end screen-called when timer runs out 
-// for bonus add printing counter, play again button, etc
 function stop (interval){
    clearInterval(interval);
    //console.log("stopped");
    var accuracy = dotsclicked/20; 
    var percentage = accuracy * 100 + '%';
    
-   // what is the purpose of this: 
-   //document.getElementById("start").style.display = 'block'; 
   
       //print this out in a div that says how many targets were clicked & accuracy
-   document.getElementById('player-accuracy').innerHTML =  accuracy;
+   document.getElementById('player-accuracy').innerHTML =  percentage;
    document.getElementById('targets-hit').textContent =  dotsclicked;
 
 
