@@ -7,11 +7,27 @@ let dotsclicked = 0;
 function start(){
       var gamestarted = true;
         var e = document.getElementById("target");
-        //e.style.display = 'block';
-         //set a timer variable 
-         console.log(interval);
+         //set a timer variable & interval
          var interval = setInterval(play, 3000);
-         setTimeout(stop(interval), 10000); // whats the difference between 10* 1000 and this 
+         setTimeout(stop(interval), 30000); // whats the difference between 10* 1000 and this 
+         //testing the interval and timeout:
+        /*var intervalId = setInterval(function(){ 
+            console.log("Hello every 5 seconds!"); 
+        }, 5000);
+        //stop the interval after 10 seconds
+       setTimeout(function(){
+            clearInterval(intervalId); 
+        }, 10000)*/
+        //this worked
+        /* var intervalId2 = setInterval(function(){
+         console.log("log2");
+        }, 3000);
+        setTimeout(function(){
+         clearInterval(intervalId2);
+        }, 10000); */
+        //observation: they both ran at the same time and stopped with the timeout func
+
+
 }
 
 // function to make the dot appear/disapear every 5 secs
@@ -33,11 +49,12 @@ function play(){
    e.style.display = 'block';
    
    var intervalg = setInterval(grow, 100);
-   setTimeout(function stopGrow(intervalg){
+   console.log("break1");
+   /*setTimeout(function stopGrow(){
       clearInterval(intervalg);
-   }, 1000)
+   }, 1000);*/
    //this just made it flicker between expanding and shrinking:
-   /*setTimeout(function stopGrow(intervalg){
+   setTimeout(function stopGrow(intervalg){
       clearInterval(intervalg);
    }, 1000);
 
@@ -45,7 +62,7 @@ function play(){
    var intervals = setInterval(shrink, 100);
    setTimeout(function stopShrink(intervals){
       clearInterval(intervals)
-   }, 1000);*/
+   }, 1000);
    
    /*setTimeout(function stop(interval){
       clearInterval(interval)
@@ -75,11 +92,11 @@ function grow(){
    width = parseInt(width);
    width += 5;
    e.style.width = width + 'px'; 
-   console.log(width);
+   console.log("growing");
 }
 
-function shrink(interval){
-   clearInterval(interval);
+function shrink(){
+   //clearInterval(interval);
    var e = document.getElementById("target");
    //something isnt working here 
    var height = e.style.height.substring(0,e.style.height.length-2);
@@ -94,7 +111,7 @@ function shrink(interval){
    width = parseInt(width);
    width -= 5;
    e.style.width = width + 'px'; 
-   //console.log(width);
+   console.log("shrinking");
 }
 // function that ads to a counter everytime the dot is clicked
 function DotClicked(){
@@ -107,6 +124,7 @@ function DotClicked(){
 function stop (interval){
    //when i added this it stopped showing up (there is something wrong with the timeout functions)
    clearInterval(interval);
+   console.log("stopped");
    //var accuracy = numClicks/numTargets; 
    //var percentage = accuracy * 100 + '%';
    //clearInterval(interval);
