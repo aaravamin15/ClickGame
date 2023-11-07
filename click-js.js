@@ -128,7 +128,11 @@ function stop (interval){
    //var accuracy = numClicks/numTargets; 
    //var percentage = accuracy * 100 + '%';
    //clearInterval(interval);
+   var accuracy = numClicks/numTargets; 
+   var percentage = accuracy * 100 + '%';
    document.getElementById("start").style.display = 'block';
+   document.getElementById('player-accuracy').textContent = accuracy;
+   document.getElementById('targets-hit').textContent = dotsclicked;
    //print this out in a div that says how many targets were clicked & the percentage
 
 }
