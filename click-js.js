@@ -27,7 +27,7 @@ function start(){
          setTimeout(() => clearInterval(intervalt), 30 * 1000);
 
          play(); 
-         var interval = setInterval(play, 3000);
+         var interval = setInterval(play, 1500);
          setTimeout(() => stop(interval), 30000); 
 }
 
@@ -49,12 +49,12 @@ function play(){
    e.style.top = y + 'vh';
    e.style.display = 'block';
    
-   var intervalg = setInterval(grow, 300);
+   var intervalg = setInterval(grow, 50);
    setTimeout(()=> 
    { clearInterval(intervalg);
-      var intervals = setInterval(shrink, 300);
-      setTimeout(() => clearInterval(intervals), 1500);
-   }, 1500);
+      var intervals = setInterval(shrink, 50);
+      setTimeout(() => clearInterval(intervals), 750);
+   }, 750);
 
 }
 
@@ -102,15 +102,15 @@ function DotClicked(){
 function stop (interval){
    clearInterval(interval);
    //console.log("stopped");
-   var accuracy = dotsclicked/10; 
+   var accuracy = dotsclicked/20; 
    var percentage = accuracy * 100 + '%';
    
    // what is the purpose of this: 
    //document.getElementById("start").style.display = 'block'; 
   
       //print this out in a div that says how many targets were clicked & accuracy
-   document.getElementById('player-accuracy').innerHTML =  " Accuracy: " + accuracy;
-   document.getElementById('targets-hit').textContent = "Targets Hit: " + dotsclicked;
+   document.getElementById('player-accuracy').innerHTML =  accuracy;
+   document.getElementById('targets-hit').textContent =  dotsclicked;
 
 
 }

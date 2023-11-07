@@ -1,12 +1,20 @@
 .dot {
     height: 25px;
     width: 25px;
-    background-color: #ff0000;
+    background-color: #e29b9b;
     border-radius: 50%;
     position: relative;
     display: none;
   }
+body {
+    background-color: rgb(211, 239, 211);
+}
+/*style{
+    font-family: "Lucida Handwriting", "cursive";
+}*/ 
 
-  #score {
-    display: none;
-  }
+button{
+    background-color: rgb(116, 139, 116);
+}
+
+
