@@ -17,8 +17,10 @@ function timerSteps() {
  
 //start function (starts when start button is clicked)
 function start(){
-      var gamestarted = true;
-      var e = document.getElementById("target");
+
+   document.getElementById("timer").innerHTML = "timer: 30 seconds remaining";
+   var gamestarted = true;
+   var e = document.getElementById("target");
          //set a timer variable & interval
          var intervalt = setInterval(timerSteps, 1000);
          setTimeout(() => clearInterval(intervalt), 30 * 1000);
@@ -91,6 +93,7 @@ function DotClicked(){
 // end screen-called when timer runs out 
 function stop (interval){
    clearInterval(interval);
+   document.getElementById("target").style.display = "none";
    document.getElementById("startAgain").style.display = "block";
 
    var accuracy = dotsclicked/20; 
