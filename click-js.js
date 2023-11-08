@@ -101,6 +101,7 @@ function DotClicked(){
 // for bonus add printing counter, play again button, etc
 function stop (interval){
    clearInterval(interval);
+   document.getElementById.style.display = "block";
    //console.log("stopped");
    var accuracy = dotsclicked/20; 
    var percentage = accuracy * 100 + '%';
