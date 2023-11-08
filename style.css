@@ -17,7 +17,7 @@ button{
     background-color: rgb(116, 139, 116);
 }
 
-.again{
+#startAgain{
     display: none; 
 }
 
