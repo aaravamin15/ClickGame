@@ -1,6 +1,6 @@
 
 document.getElementById("start").addEventListener("click", start);
-
+document.getElementById("startAgain").addEventListener("click", start);
 document.getElementById("target").addEventListener("click", DotClicked);
 let dotsclicked = 0;
 //starts when start button is clicked
@@ -100,11 +100,11 @@ function DotClicked(){
 // end screen-called when timer runs out 
 function stop (interval){
    clearInterval(interval);
-   document.getElementById.style.display = "block";
+   document.getElementById("startAgain").style.display = "block";
    //console.log("stopped");
    var accuracy = dotsclicked/20; 
    var percentage = accuracy * 100 + '%';
-   
+   console.log(percentage);
   
       //print this out in a div that says how many targets were clicked & accuracy
    document.getElementById('player-accuracy').innerHTML =  percentage;
