@@ -3,22 +3,19 @@ document.getElementById("start").addEventListener("click", start);
 document.getElementById("startAgain").addEventListener("click", start);
 document.getElementById("target").addEventListener("click", DotClicked);
 let dotsclicked = 0;
-//starts when start button is clicked
 
+//timer function:
 function timerSteps() {
    const e = document.getElementById("timer");
    const e2 = e.innerHTML.split(" seconds remaining");
-   console.log(e2);
    const e3 = e2[0].split("timer: ");
-   console.log(e3);
    
    var x = parseInt(e3[1]) - 1;
 
-   //console.log(x);
    e.innerHTML = 'timer: ' + x + ' seconds remaining';
 }
  
-  
+//start function (starts when start button is clicked)
 function start(){
       var gamestarted = true;
       var e = document.getElementById("target");
@@ -31,9 +28,10 @@ function start(){
          setTimeout(() => stop(interval), 30000); 
 }
 
-// function to make the dot appear/disapear every 5 secs
+// generates random function 
 const getRandom = (min, max)  => Math.floor(Math.random()*(max-min+1)+min);
 
+//func that generates position of target and calls the grow and shrink functions
 function play(){
    var e = document.getElementById("target");
    e.style.display = 'none';
@@ -42,8 +40,6 @@ function play(){
    var dotsclicked = 0;
    var y = getRandom(10, 90);
    var x = getRandom(10, 90);
-   //console.log(y);
-   //console.log(x);
 
    e.style.left= x + 'vh';
    e.style.top = y + 'vh';
@@ -58,38 +54,32 @@ function play(){
 
 }
 
+//func to make target grow
 function grow(){
    var e = document.getElementById("target");
    var height = e.style.height.substring(0,e.style.height.length-2);
-   //console.log(height);
    height = parseInt(height);
    height += 5;
    e.style.height = height + 'px'; 
-   console.log(height);
 
    var width = e.style.width.substring(0,e.style.width.length-2);
-   //console.log(width);
    width = parseInt(width);
    width += 5;
    e.style.width = width + 'px'; 
-   //console.log("growing");
 }
 
+//shrinks the target
 function shrink(){
    var e = document.getElementById("target");
    var height = e.style.height.substring(0,e.style.height.length-2);
-   //console.log(height);
    height = parseInt(height);
    height -= 5;
    e.style.height = height + 'px'; 
-   //console.log(height);
 
    var width = e.style.width.substring(0,e.style.width.length-2);
-   //console.log(width);
    width = parseInt(width);
    width -= 5;
    e.style.width = width + 'px'; 
-   //console.log("shrinking");
 }
 
 // function that ads to a counter everytime the dot is clicked
@@ -97,22 +87,16 @@ function DotClicked(){
    document.getElementById("target").style.display = "none";
    dotsclicked++;
 }
+
 // end screen-called when timer runs out 
 function stop (interval){
    clearInterval(interval);
-   /* prevents scoreboard from displaying when timer hits 0
    document.getElementById("startAgain").style.display = "block";
-   */
-   //console.log("stopped");
+
    var accuracy = dotsclicked/20; 
    var percentage = accuracy * 100 + '%';
-   console.log(percentage);
-  
-      //print this out in a div that says how many targets were clicked & accuracy
+
    document.getElementById('player-accuracy').innerHTML =  percentage;
    document.getElementById('targets-hit').textContent =  dotsclicked + "/20";
-   
-
-
 }
 
