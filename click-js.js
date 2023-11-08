@@ -40,10 +40,10 @@ function play(){
    e.style.height = '25px';
    e.style.width = '25px';
    var dotsclicked = 0;
-   var y = getRandom(10, 90);
+   var y = getRandom(10, 67);
    var x = getRandom(10, 90);
 
-   e.style.left= x + 'vh';
+   e.style.left= x + 'vw';
    e.style.top = y + 'vh';
    e.style.display = 'block';
    
@@ -100,6 +100,6 @@ function stop (interval){
    var percentage = accuracy * 100 + '%';
 
    document.getElementById('player-accuracy').innerHTML =  percentage;
-   document.getElementById('targets-hit').textContent =  dotsclicked + "/20";
+   document.getElementById('targets-hit').textContent =  dotsclicked + " targets hit/20 total targets";
 }
 
