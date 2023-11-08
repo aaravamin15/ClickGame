@@ -100,7 +100,9 @@ function DotClicked(){
 // end screen-called when timer runs out 
 function stop (interval){
    clearInterval(interval);
+   /* prevents scoreboard from displaying when timer hits 0
    document.getElementById("startAgain").style.display = "block";
+   */
    //console.log("stopped");
    var accuracy = dotsclicked/20; 
    var percentage = accuracy * 100 + '%';
