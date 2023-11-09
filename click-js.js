@@ -17,7 +17,7 @@ function timerSteps() {
  
 //start function (starts when start button is clicked)
 function start(){
-
+   dotsclicked = 0;
    document.getElementById("timer").innerHTML = "timer: 30 seconds remaining";
    var gamestarted = true;
    var e = document.getElementById("target");
@@ -39,7 +39,6 @@ function play(){
    e.style.display = 'none';
    e.style.height = '25px';
    e.style.width = '25px';
-   dotsclicked = 0;
    var y = getRandom(10, 67);
    var x = getRandom(10, 90);
 
