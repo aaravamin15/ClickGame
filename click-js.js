@@ -17,6 +17,8 @@ function timerSteps() {
  
 //start function (starts when start button is clicked)
 function start(){
+   document.getElementById("targets-hit").innerHTML = "Targets Hit: --";
+   document.getElementById("player-accuracy").innerHTML = "Accuracy: --";
    dotsclicked = 0;
    document.getElementById("timer").innerHTML = "timer: 30 seconds remaining";
    var gamestarted = true;
@@ -99,6 +101,6 @@ function stop (interval){
    var percentage = accuracy * 100 + '%';
 
    document.getElementById('player-accuracy').innerHTML =  percentage;
-   document.getElementById('targets-hit').textContent =  dotsclicked + " targets hit/20 total targets";
+   document.getElementById('targets-hit').textContent =  dotsclicked + " targets hit / 20 total targets";
 }
 
