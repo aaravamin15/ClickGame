@@ -39,7 +39,7 @@ function play(){
    e.style.display = 'none';
    e.style.height = '25px';
    e.style.width = '25px';
-   var dotsclicked = 0;
+   dotsclicked = 0;
    var y = getRandom(10, 67);
    var x = getRandom(10, 90);
 
