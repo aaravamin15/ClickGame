@@ -17,8 +17,8 @@ function timerSteps() {
  
 //start function (starts when start button is clicked)
 function start(){
-   document.getElementById("targets-hit").innerHTML = "Targets Hit: --";
-   document.getElementById("player-accuracy").innerHTML = "Accuracy: --";
+   document.getElementById("targets-hit").innerHTML = "--";
+   document.getElementById("player-accuracy").innerHTML = "--";
    dotsclicked = 0;
    document.getElementById("timer").innerHTML = "timer: 30 seconds remaining";
    var gamestarted = true;
