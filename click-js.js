@@ -2,6 +2,14 @@
 document.getElementById("start").addEventListener("click", start);
 document.getElementById("startAgain").addEventListener("click", start);
 document.getElementById("target").addEventListener("click", DotClicked);
+document.getElementById("").addEventListener("click", changeColor(color));
+document.getElementById("").addEventListener("click", changeColor(color));
+document.getElementById("").addEventListener("click", changeColor(color));
+document.getElementById("").addEventListener("click", changeColor(color));
+document.getElementById("").addEventListener("click", changeSize(size));
+document.getElementById("").addEventListener("click", changeSize(size));gi
+document.getElementById("").addEventListener("click", changeSize(size));
+document.getElementById("").addEventListener("click", changeSize(size));
 let dotsclicked = 0;
 
 //timer function:
